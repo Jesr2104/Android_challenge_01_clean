@@ -1,0 +1,6 @@
+rootProject.name = "android_challenge_01_clean"
+include ':app'
+include ':data'
+include ':usecases'
+include ':domain'
+include ':framework'

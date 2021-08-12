@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/browserTweets">
+
+    <fragment
+        android:id="@+id/browserTweets"
+        android:name="com.justjump.android_challenge_01_clean.BrowserTweets"
+        android:label="fragment_browser_tweets"
+        tools:layout="@layout/fragment_browser_tweets" >
+
+        <action
+            android:id="@+id/action_browserTweets_to_showDetails"
+            app:destination="@id/showDetails" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/showDetails"
+        android:name="com.justjump.android_challenge_01_clean.ShowDetails"
+        android:label="fragment_show_details"
+        tools:layout="@layout/fragment_show_details" >
+        <argument
+            android:name="tweet_data_model"
+            app:argType="com.justjump.domain.tweets.TweetsDataModel"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>
