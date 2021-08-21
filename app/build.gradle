@@ -70,4 +70,6 @@ dependencies {
 
     // framework to get the tweets
     implementation 'io.github.tyczj:tweedle-android:0.3.4'
+
+    implementation 'androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1'
 }

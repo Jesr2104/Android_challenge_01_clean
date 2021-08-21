@@ -5,14 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.justjump.domain.tweets.TweetsDataModel
-import com.justjump.framework.DataTest
+import com.justjump.framework.DummyData
 import com.tycz.tweedle.lib.api.Response
 import com.tycz.tweedle.lib.authentication.oauth.OAuth2
 import com.tycz.tweedle.lib.dtos.tweet.Add
+import com.tycz.tweedle.lib.dtos.tweet.TweetData
 import com.tycz.tweedle.lib.dtos.tweet.rules.Rule
 import com.tycz.tweedle.lib.tweets.stream.TweetsStream
 import com.tycz.tweedle.lib.tweets.stream.filter.Filter
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
