@@ -52,5 +52,6 @@ dependencies {
     // framework to get the tweets
     implementation 'io.github.tyczj:tweedle-android:0.3.4'
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
+    // coroutine and flow
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 }

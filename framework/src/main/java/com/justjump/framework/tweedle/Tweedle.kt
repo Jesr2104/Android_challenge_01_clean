@@ -1,5 +1,7 @@
 package com.justjump.framework.tweedle
 
+import android.util.Log
+import com.tycz.tweedle.lib.api.Response
 import com.tycz.tweedle.lib.authentication.oauth.OAuth2
 import com.tycz.tweedle.lib.dtos.tweet.Add
 import com.tycz.tweedle.lib.dtos.tweet.rules.Rule
@@ -10,23 +12,24 @@ import kotlinx.coroutines.flow.flow
 
 class Tweedle {
 
-    private val token: String = "AAAAAAAAAAAAAAAAAAAAAAfKSAEAAAAAInN4lud2YJ3jqBRFykvq1ZUuPys%3DK1ApIYkbp4X90pqZlCa5tDd28Lo5PCH0GXO5puNn7fjzbxjDY6"
-    private val oAuth2 = OAuth2(token)
-    private val _tweetStream = TweetsStream(oAuth2)
-
-    suspend fun estasolucion(textFilter: String){
-        val myData = makeFlowRegister(textFilter)
-            .collect { print(it) }
+    companion object {
+        private const val TOKEN_TWITTER = "AAAAAAAAAAAAAAAAAAAAAAfKSAEAAAAAInN4lud2YJ3jqBRFykvq1ZUuPys%3DK1ApIYkbp4X90pqZlCa5tDd28Lo5PCH0GXO5puNn7fjzbxjDY6"
     }
 
+    private val oAuth2 = OAuth2(TOKEN_TWITTER)
+    private val _tweetStream = TweetsStream(oAuth2)
 
-    private fun makeFlowRegister(textFilter: String) = flow {
+    fun makeFlowRegister(textFilter: String) = flow {
         _tweetStream.addRules(setUpFilter(textFilter))
         _tweetStream.startTweetStream().collect {
-            emit(it)
+            when (it) {
+                is Response.Success -> { emit(it.data.data) }
+                is Response.Error -> { Log.e("error ->", it.exception.message!! ) }
+            }
         }
     }
 
+    // search filter settings
     private fun setUpFilter(textFilter: String): Rule {
         val filters:MutableList<Add> = mutableListOf()
 

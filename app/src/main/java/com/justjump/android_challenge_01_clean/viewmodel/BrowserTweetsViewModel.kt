@@ -1,32 +1,18 @@
 package com.justjump.android_challenge_01_clean.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.justjump.domain.tweets.TweetsDataModel
-import com.justjump.framework.DummyData
-import com.tycz.tweedle.lib.api.Response
-import com.tycz.tweedle.lib.authentication.oauth.OAuth2
-import com.tycz.tweedle.lib.dtos.tweet.Add
-import com.tycz.tweedle.lib.dtos.tweet.TweetData
-import com.tycz.tweedle.lib.dtos.tweet.rules.Rule
-import com.tycz.tweedle.lib.tweets.stream.TweetsStream
-import com.tycz.tweedle.lib.tweets.stream.filter.Filter
-import kotlinx.coroutines.flow.collect
+import com.justjump.framework.tweedle.RealTimeTweets
 import kotlinx.coroutines.launch
 
-class BrowserTweetsViewModel: ViewModel() {
+class BrowserTweetsViewModel : ViewModel() {
 
-    private val token: String = "AAAAAAAAAAAAAAAAAAAAAAfKSAEAAAAAInN4lud2YJ3jqBRFykvq1ZUuPys%3DK1ApIYkbp4X90pqZlCa5tDd28Lo5PCH0GXO5puNn7fjzbxjDY6"
     private var listOfTweets: ArrayList<TweetsDataModel> = arrayListOf()
     private var dataTest = DataTest()
     var liveSpanValue = MutableLiveData<Int>()
     var newPin = MutableLiveData<TweetsDataModel>()
-
-    val oAuth2 = OAuth2(token)
-    val _tweetStream = TweetsStream(oAuth2)
-
 
     init { liveSpanValue.value = 30
 
