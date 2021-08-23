@@ -14,4 +14,5 @@
     <string name="cancel">Cancel</string>
     <string name="text_dialog_set_lifespan">With this value you can set the duration of the pins on the map, until they are replaced by a new one.\n\nSet a time in seconds for example 60s.</string>
     <string name="set_lifespan">Set lifespan</string>
+    <string name="messege_field_empty">the field is empty</string>
 </resources>

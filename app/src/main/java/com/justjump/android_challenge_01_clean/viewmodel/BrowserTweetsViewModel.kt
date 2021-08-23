@@ -2,10 +2,11 @@ package com.justjump.android_challenge_01_clean.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.justjump.data.datasources.GetterTweets
+import com.justjump.data.datasources.remote.RealTimeTweets
+import com.justjump.data.repositories.SearchRepository
 import com.justjump.domain.tweets.TweetsDataModel
-import com.justjump.framework.tweedle.RealTimeTweets
-import kotlinx.coroutines.launch
+import com.justjump.usecases.SearchTweetsUseCases
 
 class BrowserTweetsViewModel : ViewModel() {
 

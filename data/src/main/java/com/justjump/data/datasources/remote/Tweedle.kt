@@ -1,4 +1,4 @@
-package com.justjump.framework.tweedle
+package com.justjump.data.datasources.remote
 
 import android.util.Log
 import com.tycz.tweedle.lib.api.Response
@@ -7,8 +7,8 @@ import com.tycz.tweedle.lib.dtos.tweet.Add
 import com.tycz.tweedle.lib.dtos.tweet.rules.Rule
 import com.tycz.tweedle.lib.tweets.stream.TweetsStream
 import com.tycz.tweedle.lib.tweets.stream.filter.Filter
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.collect
 
 class Tweedle {
 

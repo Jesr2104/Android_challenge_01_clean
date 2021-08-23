@@ -1,4 +1,4 @@
-package com.justjump.framework.tweedle.utils
+package com.justjump.data.datasources.remote.utils
 
 import com.justjump.domain.tweets.GeoLocationDataModel
 import kotlin.random.Random
@@ -41,16 +41,6 @@ class DummyDataLocations {
 
     }
 
-    fun getTweet(): TweetsDataModel {
+    fun geoLocation(): GeoLocationDataModel =  listLocation[Random.nextInt(0, 29)]
 
-        val location: GeoLocation = listLocation[Random.nextInt(0, 29)]
-
-        return TweetsDataModel(
-            user = "@UserTest${Random.nextInt(0, 9999999)}",
-            text = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout...\uD83D\uDE02 should I continue?..",
-            location.latitude,
-            location.longitude,
-            id = "1423623606324678659"
-        )
-    }
 }

@@ -1,9 +1,9 @@
-package com.justjump.framework.tweedle
+package com.justjump.data.datasources.remote
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.justjump.domain.tweets.TweetsDataModel
-import com.justjump.framework.tweedle.utils.DummyDataLocations
+import com.justjump.data.datasources.remote.utils.DummyDataLocations
 import com.tycz.tweedle.lib.dtos.tweet.TweetData
 import kotlinx.coroutines.flow.collect
 
