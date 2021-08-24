@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -22,11 +23,13 @@ import com.justjump.android_challenge_01_clean.databinding.FragmentBrowserTweets
 import com.justjump.android_challenge_01_clean.dialog.DialogLiveSpanSetup
 import com.justjump.android_challenge_01_clean.viewmodel.BrowserTweetsViewModel
 import com.justjump.domain.tweets.TweetsDataModel
+import org.koin.androidx.scope.ScopeFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class BrowserTweets : Fragment(), DialogLiveSpanSetup.SetupValue, OnMapReadyCallback {
+class BrowserTweets : ScopeFragment(), DialogLiveSpanSetup.SetupValue, OnMapReadyCallback {
 
     private lateinit var binding: FragmentBrowserTweetsBinding
-    private lateinit var browserTweetsViewModel: BrowserTweetsViewModel
+    private val browserTweetsViewModel: BrowserTweetsViewModel by viewModel()
     private lateinit var navController: NavController
     private lateinit var mMap: GoogleMap
 
@@ -42,7 +45,6 @@ class BrowserTweets : Fragment(), DialogLiveSpanSetup.SetupValue, OnMapReadyCall
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        browserTweetsViewModel = ViewModelProvider(this).get(BrowserTweetsViewModel::class.java)
         navController = view.findNavController()
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
