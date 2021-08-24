@@ -28,8 +28,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BrowserTweets : ScopeFragment(), DialogLiveSpanSetup.SetupValue, OnMapReadyCallback {
 
-    private lateinit var binding: FragmentBrowserTweetsBinding
     private val browserTweetsViewModel: BrowserTweetsViewModel by viewModel()
+    private lateinit var binding: FragmentBrowserTweetsBinding
     private lateinit var navController: NavController
     private lateinit var mMap: GoogleMap
 

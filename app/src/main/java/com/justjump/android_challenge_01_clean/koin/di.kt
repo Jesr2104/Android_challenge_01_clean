@@ -1,6 +1,7 @@
-package com.justjump.android_challenge_01_clean
+package com.justjump.android_challenge_01_clean.koin
 
 import android.app.Application
+import com.justjump.android_challenge_01_clean.BrowserTweets
 import com.justjump.android_challenge_01_clean.viewmodel.BrowserTweetsViewModel
 import com.justjump.data.datasources.GetterTweets
 import com.justjump.data.datasources._interfaces.TweetsIDataSource
@@ -14,11 +15,10 @@ import org.koin.core.context.startKoin
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-fun Application.initdi(){
+fun Application.initDI(){
     startKoin {
         androidLogger()
-        androidContext(this@initdi)
-
+        androidContext(this@initDI)
         modules(listOf(mymodules, presentation))
     }
 }
@@ -32,9 +32,7 @@ var mymodules = module {
 
 var presentation = module {
     scope(named<BrowserTweets>()){
-        viewModel {
-            BrowserTweetsViewModel(get())
-        }
+        viewModel { BrowserTweetsViewModel(get()) }
     }
 }
 
